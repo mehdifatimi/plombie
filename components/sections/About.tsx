@@ -74,7 +74,7 @@ export function About() {
                         className="relative h-[500px] w-full rounded-2xl overflow-hidden shadow-2xl group"
                     >
                         <Image
-                            src="https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?q=80&w=2070"
+                            src="/about-image.png"
                             alt="Plombier professionnel au travail"
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"

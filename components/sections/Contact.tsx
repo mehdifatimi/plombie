@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
+import { servicesData } from '@/data/services';
 import { motion } from 'framer-motion';
 import { Phone, MessageCircle, Send } from 'lucide-react';
 
@@ -69,6 +70,20 @@ export function Contact() {
                                         <label htmlFor="phone" className="text-sm font-medium text-foreground">Téléphone</label>
                                         <Input id="phone" type="tel" placeholder="06..." required />
                                     </div>
+                                </div>
+                                <div className="space-y-2">
+                                    <label htmlFor="service" className="text-sm font-medium text-foreground">Service concerné</label>
+                                    <select
+                                        id="service"
+                                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                        required
+                                    >
+                                        <option value="">Sélectionnez un service</option>
+                                        {servicesData.map((service, index) => (
+                                            <option key={index} value={service.title}>{service.title}</option>
+                                        ))}
+                                        <option value="autre">Autre demande</option>
+                                    </select>
                                 </div>
                                 <div className="space-y-2">
                                     <label htmlFor="email" className="text-sm font-medium text-foreground">Email</label>
