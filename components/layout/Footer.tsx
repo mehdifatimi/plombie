@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Facebook, Instagram, Linkedin, MapPin, Mail, Phone, Wrench } from 'lucide-react';
 
 export function Footer() {
@@ -7,13 +8,15 @@ export function Footer() {
             <div className="container mx-auto px-4 md:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
                     <div className="space-y-4">
-                        <div className="flex items-center space-x-2">
-                            <div className="bg-primary p-2 rounded-lg text-white">
-                                <Wrench size={20} />
+                        <div className="flex items-center space-x-2 mb-4">
+                            <div className="relative h-16 w-48">
+                                <Image
+                                    src="/logo.png"
+                                    alt="PlombierPro Logo"
+                                    fill
+                                    className="object-contain" // Keep aspect ratio
+                                />
                             </div>
-                            <span className="text-xl font-bold text-white">
-                                Plombier<span className="text-primary">Pro</span>
-                            </span>
                         </div>
                         <p className="text-slate-400 text-sm leading-relaxed">
                             Votre expert en plomberie pour tous vos besoins d'installation, réparation et entretien. Disponible 24/7 pour les urgences.

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X, Phone, Wrench } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
@@ -35,12 +36,15 @@ export function Header() {
         >
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 <Link href="/" className="flex items-center space-x-2 z-50">
-                    <div className="bg-primary p-2 rounded-lg text-white">
-                        <Wrench size={24} />
+                    <div className="relative h-12 w-40">
+                        <Image
+                            src="/logo.png"
+                            alt="PlombierPro Logo"
+                            fill
+                            className="object-contain"
+                            priority
+                        />
                     </div>
-                    <span className={cn("text-xl font-bold tracking-tight", scrolled ? "text-foreground" : "text-foreground md:text-white")}>
-                        Plombier<span className="text-primary">Pro</span>
-                    </span>
                 </Link>
 
                 {/* Desktop Nav */}
