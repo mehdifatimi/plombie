@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Facebook, Instagram, Linkedin, MapPin, Mail, Phone, Wrench } from 'lucide-react';
+import { Facebook, Instagram, Linkedin, MapPin, Mail, Phone } from 'lucide-react';
 
 export function Footer() {
     return (
@@ -19,7 +19,7 @@ export function Footer() {
                             </div>
                         </div>
                         <p className="text-slate-400 text-sm leading-relaxed">
-                            Votre expert en plomberie pour tous vos besoins d'installation, réparation et entretien. Disponible 24/7 pour les urgences.
+                            Votre expert en plomberie pour tous vos besoins d&apos;installation, réparation et entretien. Disponible 24/7 pour les urgences.
                         </p>
                     </div>
 

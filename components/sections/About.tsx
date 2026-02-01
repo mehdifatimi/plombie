@@ -7,14 +7,14 @@ import Image from 'next/image';
 const features = [
     "Intervention rapide 24/7",
     "Devis gratuit et détaillé",
-    "Garantie pièce et main d'œuvre",
+    "Garantie pièce et main d&apos;œuvre",
     "Artisans qualifiés et certifiés",
     "Tarifs transparents sans surprise",
     "Respect des délais et des lieux"
 ];
 
 const stats = [
-    { icon: Clock, value: "15+", label: "Années d'expérience" },
+    { icon: Clock, value: "15+", label: "Années d&apos;expérience" },
     { icon: Users, value: "2000+", label: "Clients satisfaits" },
     { icon: Award, value: "100%", label: "Garantie" },
 ];

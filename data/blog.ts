@@ -1,4 +1,4 @@
-export interface BlogPost {
+export type BlogPost = {
     id: string;
     title: string;
     excerpt: string;
@@ -6,7 +6,7 @@ export interface BlogPost {
     image: string;
     category: string;
     readTime: string;
-}
+};
 
 export const blogPosts: BlogPost[] = [
     {
