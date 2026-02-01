@@ -10,10 +10,10 @@ export function Hero() {
         <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden bg-slate-900 pt-16">
             {/* Background with overlay */}
             <div
-                className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-40 mix-blend-overlay"
-                style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80")' }}
+                className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-100"
+                style={{ backgroundImage: 'url("/header-bg.png")' }}
             />
-            <div className="absolute inset-0 bg-gradient-to-b from-slate-900/80 via-slate-900/50 to-slate-900 z-0" />
+            <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 via-slate-900/20 to-slate-900 z-0" />
 
             <div className="container relative z-10 px-4 md:px-6 text-center">
                 <motion.div
@@ -45,7 +45,7 @@ export function Hero() {
                         className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
                     >
                         <Link
-                            href="tel:0612345678"
+                            href="tel:0762818313"
                             className={getButtonClasses('primary', 'lg', 'w-full sm:w-auto text-lg px-8 h-14')}
                         >
                             <Phone className="mr-2 h-5 w-5" />

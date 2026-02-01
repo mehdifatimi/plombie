@@ -1,5 +1,6 @@
 'use client';
 
+import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Textarea } from '@/components/ui/Textarea';
@@ -8,10 +9,39 @@ import { motion } from 'framer-motion';
 import { Phone, MessageCircle, Send } from 'lucide-react';
 
 export function Contact() {
+    const [formData, setFormData] = useState({
+        name: '',
+        phone: '',
+        service: '',
+        email: '',
+        message: ''
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+        const { id, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [id]: value
+        }));
+    };
+
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        // Placeholder for form submission
-        alert('Message envoyé ! (Simulation)');
+
+        const message = `📩 Nouvelle demande de service
+
+👤 Nom : ${formData.name}
+📞 Téléphone : ${formData.phone}
+🛠️ Service : ${formData.service}
+📧 Email : ${formData.email || 'Non renseigné'}
+
+📝 Message :
+${formData.message}`;
+
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/212762818313?text=${encodedMessage}`;
+
+        window.open(whatsappUrl, '_blank');
     };
 
     return (
@@ -29,17 +59,17 @@ export function Contact() {
                                 </p>
 
                                 <div className="space-y-6">
-                                    <a href="tel:0612345678" className="flex items-center p-4 bg-background rounded-xl shadow-sm border hover:border-primary transition-colors group">
+                                    <a href="tel:0762818313" className="flex items-center p-4 bg-background rounded-xl shadow-sm border hover:border-primary transition-colors group">
                                         <div className="bg-primary/10 p-3 rounded-full mr-4 text-primary group-hover:bg-primary group-hover:text-white transition-colors">
                                             <Phone size={24} />
                                         </div>
                                         <div>
                                             <p className="font-semibold text-foreground">Par Téléphone</p>
-                                            <p className="text-primary font-bold text-lg">06 12 34 56 78</p>
+                                            <p className="text-primary font-bold text-lg">07 62 81 83 13</p>
                                         </div>
                                     </a>
 
-                                    <a href="https://wa.me/33612345678" target="_blank" rel="noopener noreferrer" className="flex items-center p-4 bg-background rounded-xl shadow-sm border hover:border-green-500 transition-colors group">
+                                    <a href="https://wa.me/33762818313" target="_blank" rel="noopener noreferrer" className="flex items-center p-4 bg-background rounded-xl shadow-sm border hover:border-green-500 transition-colors group">
                                         <div className="bg-green-100 p-3 rounded-full mr-4 text-green-600 group-hover:bg-green-500 group-hover:text-white transition-colors">
                                             <MessageCircle size={24} />
                                         </div>
@@ -64,11 +94,24 @@ export function Contact() {
                                 <div className="grid grid-cols-2 gap-4">
                                     <div className="space-y-2">
                                         <label htmlFor="name" className="text-sm font-medium text-foreground">Nom</label>
-                                        <Input id="name" placeholder="Votre nom" required />
+                                        <Input
+                                            id="name"
+                                            placeholder="Votre nom"
+                                            required
+                                            value={formData.name}
+                                            onChange={handleChange}
+                                        />
                                     </div>
                                     <div className="space-y-2">
                                         <label htmlFor="phone" className="text-sm font-medium text-foreground">Téléphone</label>
-                                        <Input id="phone" type="tel" placeholder="06..." required />
+                                        <Input
+                                            id="phone"
+                                            type="tel"
+                                            placeholder="06..."
+                                            required
+                                            value={formData.phone}
+                                            onChange={handleChange}
+                                        />
                                     </div>
                                 </div>
                                 <div className="space-y-2">
@@ -77,6 +120,8 @@ export function Contact() {
                                         id="service"
                                         className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                                         required
+                                        value={formData.service}
+                                        onChange={handleChange}
                                     >
                                         <option value="">Sélectionnez un service</option>
                                         {servicesData.map((service, index) => (
@@ -87,11 +132,24 @@ export function Contact() {
                                 </div>
                                 <div className="space-y-2">
                                     <label htmlFor="email" className="text-sm font-medium text-foreground">Email</label>
-                                    <Input id="email" type="email" placeholder="votre@email.com" />
+                                    <Input
+                                        id="email"
+                                        type="email"
+                                        placeholder="votre@email.com"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                    />
                                 </div>
                                 <div className="space-y-2">
                                     <label htmlFor="message" className="text-sm font-medium text-foreground">Message</label>
-                                    <Textarea id="message" placeholder="Décrivez votre problème..." className="min-h-[120px]" required />
+                                    <Textarea
+                                        id="message"
+                                        placeholder="Décrivez votre problème..."
+                                        className="min-h-[120px]"
+                                        required
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                    />
                                 </div>
                                 <Button type="submit" className="w-full h-12 text-lg">
                                     <Send className="mr-2 h-4 w-4" />

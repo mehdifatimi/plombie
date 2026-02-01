@@ -31,41 +31,46 @@ export function Header() {
         <header
             className={cn(
                 'fixed top-0 w-full z-50 transition-all duration-300',
-                scrolled ? 'bg-background/80 backdrop-blur-md shadow-sm border-b py-2' : 'bg-transparent py-4'
+                scrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'
             )}
         >
             <div className="container mx-auto px-4 md:px-6 flex items-center justify-between">
                 <Link href="/" className="flex items-center space-x-2 z-50">
-                    <div className="relative h-12 w-40">
+                    <div className="relative h-20 w-64">
                         <Image
                             src="/logo.png"
                             alt="PlombierPro Logo"
                             fill
-                            className="object-contain"
+                            className="object-contain object-left"
                             priority
                         />
                     </div>
                 </Link>
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center space-x-8">
+                {/* Desktop Nav - Centered */}
+                <nav className="hidden md:flex items-center space-x-10 absolute left-1/2 transform -translate-x-1/2">
                     {navLinks.map((link) => (
                         <Link
                             key={link.name}
                             href={link.href}
                             className={cn(
-                                "text-sm font-medium transition-colors hover:text-primary",
-                                scrolled ? "text-foreground/80" : "text-white/90 hover:text-white"
+                                "text-base font-medium transition-colors hover:text-primary",
+                                scrolled ? "text-slate-900" : "text-white/90 hover:text-white"
                             )}
                         >
                             {link.name}
                         </Link>
                     ))}
-                    <Button variant={scrolled ? "primary" : "secondary"} size="sm" className="gap-2">
-                        <Phone size={16} />
-                        06 12 34 56 78
-                    </Button>
                 </nav>
+
+                {/* CTA Button - Right */}
+                <div className="hidden md:flex items-center">
+                    <Button variant={scrolled ? "primary" : "secondary"} size="sm" className="gap-2 shadow-sm">
+                        <Phone size={16} />
+                        07 62 81 83 13
+                    </Button>
+                </div>
 
                 {/* Mobile Menu Toggle */}
                 <button
