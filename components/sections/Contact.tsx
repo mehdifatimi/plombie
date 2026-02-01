@@ -39,7 +39,7 @@ export function Contact() {
 ${formData.message}`;
 
         const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/212762818313?text=${encodedMessage}`;
+        const whatsappUrl = `https://wa.me/33762818313?text=${encodedMessage}`;
 
         window.open(whatsappUrl, '_blank');
     };

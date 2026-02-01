@@ -30,7 +30,7 @@ export function Footer() {
                             <li><Link href="#" className="hover:text-primary transition-colors">Recherche de fuites</Link></li>
                             <li><Link href="#" className="hover:text-primary transition-colors">Chauffe-eau</Link></li>
                             <li><Link href="#" className="hover:text-primary transition-colors">Rénovation salle de bain</Link></li>
-                            <li><Link href="#" className="hover:text-primary transition-colors">Installation sanitaire</Link></li>
+                            <li><Link href="#blog" className="hover:text-primary transition-colors">Actualités & Conseils</Link></li>
                         </ul>
                     </div>
 
